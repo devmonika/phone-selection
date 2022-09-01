@@ -3,12 +3,15 @@ const getMobileApi = async (searchText) => {
     const res = await fetch(url);
     const data = await res.json();
     displayMobiles(data.data);
+    // console.log('getMobileApi');
 }
 
 const displayMobiles = mobiles => {
+    // console.log('displayMobiles');
     const phoneContainer = document.getElementById('phone-container');
+    phoneContainer.textContent = '';
     mobiles.forEach(mobile => {
-        console.log(mobile);
+        // console.log(mobile);
         const mobileDiv = document.createElement('div');
         mobileDiv.classList.add('col');
         mobileDiv.innerHTML = `
@@ -25,12 +28,12 @@ const displayMobiles = mobiles => {
 }
 
 
-document.getElementById('search-phone').addEventListener('click', function() {
+document.getElementById('search-phone').addEventListener('click', function () {
+    // console.log('click');
     const searchInput = document.getElementById('search-input');
-    const searchText = searchInput.Value;
+    const searchText = searchInput.value;
     getMobileApi(searchText);
-
 });
 
 
-getMobileApi();
+getMobileApi('a');
